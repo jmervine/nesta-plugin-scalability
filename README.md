@@ -1,6 +1,6 @@
 # Nesta::Plugin::Scalability
 
-TODO: Write a gem description
+Updates Nesta to save to both to Mongodb and the filesystem, so that Nesta can scale beyond a single server without NFS.
 
 ## Installation
 
