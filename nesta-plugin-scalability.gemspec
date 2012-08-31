@@ -15,5 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Nesta::Plugin::Scalability::VERSION
   gem.add_dependency("nesta", ">= 0.9.11")
+  gem.add_dependency("mongodb", ">= 2.1.0")
+  gem.add_dependency("bson_ext", ">= 1.7.0")
   gem.add_development_dependency("rake")
+  gem.add_development_dependency("rspec")
+  gem.add_development_dependency("simplecov")
 end
