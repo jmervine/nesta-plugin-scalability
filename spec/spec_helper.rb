@@ -1,12 +1,12 @@
 ENV['RACK_ENV'] = 'test'
 
-require 'simplecov'
-SimpleCov.start
+#require 'simplecov'
+#SimpleCov.start
 
-require 'nesta'
 require 'mongo'
+require 'nesta'
 require File.join File.dirname(__FILE__), "..", "lib", "nesta-plugin-scalability"
-require File.join File.dirname(__FILE__), "..", "lib", "nesta-plugin-scalability"
+#require File.join File.dirname(__FILE__), "..", "lib", "nesta-plugin-scalability", "init"
 
 START_TIME = Time.now
 
@@ -20,7 +20,10 @@ START_TIME = Time.now
 
 # configure mongodb connection
 $mongodb = Mongo::Connection.new.db('rspec').collection('rspec')
+$mongodb.remove
 
 # setup some defaults in mongo
 $mongodb.insert( { '_id' => '/tmp/rspec/mongo1.mdown', 'mtime' => Time.now, 'body' => 'mongo1.mdown body' } )
+
+#include Sinatra::Base
 
