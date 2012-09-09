@@ -18,7 +18,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This will work out of the box with a default mongodb install on the same machine. See below for advanced configuration.
+
+        # file: config/config.yml
+        # defaults are shown and used with configuration
+        # is not present
+        mongodb
+          host: localhost
+          port: 27017     
+          database: nestacms 
+          collection: nestacms
+          # username: <USERNAME>
+          # password: <PASSWORD>
+
+#### Import CLI
+
+Import is queued off of your mongo and content configurations in your config file. By default it uses 'config/config.yml', however, if you pass a file to it, it will use that for configuration instead.
+
+    $ import 
+
+    $ import ./config/custom_config.yml
+
+> Note: This will only import files that don't exist and bypass anything that does. If you need to do a fresh import of all files, be sure to blow away your database first. 
+
 
 ## Contributing
 
