@@ -2,6 +2,8 @@
 
 Updates Nesta to save to both to Mongodb and the filesystem, so that Nesta can scale beyond a single server without NFS.
 
+> Note: this needs some real testing before begin used. Feel free to play with it and submit any bugs you find and I'll do my best to get them fixed ASAP. Also, pull requests are welcome!
+
 ## Installation
 
 Add this line to your application's Gemfile:
