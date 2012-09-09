@@ -5,32 +5,32 @@ module Nesta
         # If your plugin needs any helper methods, add them here...
       end
 
-      def self.init_mongodb
-        # configure mongodb connection
-        unless $mongodb
-          mdb_params = []
+#      def self.init_mongodb
+        ## configure mongodb connection
+        #unless $mongodb
+          #mdb_params = []
 
-          mdb_params.push Nesta::Config.mongodb["host"] if Nesta::Config.mongodb.has_key?("host")
-          mdb_params.push Nesta::Config.mongodb["port"] if Nesta::Config.mongodb.has_key?("port")
+          #mdb_params.push Nesta::Config.mongodb["host"] if Nesta::Config.mongodb.has_key?("host")
+          #mdb_params.push Nesta::Config.mongodb["port"] if Nesta::Config.mongodb.has_key?("port")
 
-          mdb_database_name   = (Nesta::Config.mongodb.has_key?("database") ? Nesta::Config.mongodb["database"] : "nestacms")
-          mdb_collection_name = (Nesta::Config.mongodb.has_key?("collection") ? Nesta::Config.mongodb["collection"] : "nestacms")
+          #mdb_database_name   = (Nesta::Config.mongodb.has_key?("database") ? Nesta::Config.mongodb["database"] : "nestacms")
+          #mdb_collection_name = (Nesta::Config.mongodb.has_key?("collection") ? Nesta::Config.mongodb["collection"] : "nestacms")
 
-          mdb = if mdb_params.empty?
-                  Mongo::Connection.new.db(mdb_database_name)
-                else
-                  Mongo::Connection.new(*mdb_params).db(mdb_database_name)
-                end
+          #mdb = if mdb_params.empty?
+                  #Mongo::Connection.new.db(mdb_database_name)
+                #else
+                  #Mongo::Connection.new(*mdb_params).db(mdb_database_name)
+                #end
 
-          if Nesta::Config.mongdb.has_key?("username") and Nesta::Config.mongodb.has_key?("password")
-            mdb.authenticate(Nesta::Config.mongodb["username"], Nesta::Config.mongodb["password"])
-          end
+          #if Nesta::Config.mongdb.has_key?("username") and Nesta::Config.mongodb.has_key?("password")
+            #mdb.authenticate(Nesta::Config.mongodb["username"], Nesta::Config.mongodb["password"])
+          #end
 
-          $mongodb = mdb.collection(mdb_collection_name)
-        end
-      rescue
-        $mongodb = Mongo::Connection.new.db('nestacms').collection('nestacms')
-      end
+          #$mongodb = mdb.collection(mdb_collection_name)
+        #end
+      #rescue
+        #$mongodb = Mongo::Connection.new.db('nestacms').collection('nestacms')
+#      end
     end
   end
 
@@ -38,7 +38,7 @@ module Nesta
     helpers Nesta::Plugin::Scalability::Helpers
 
     configure do
-      Nesta::Plugin::Scalability.init_mongodb
+      #Nesta::Plugin::Scalability.init_mongodb
     end
   end
 
